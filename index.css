@@ -69,19 +69,38 @@ body {
 .nav-mobile ul {
     position: absolute;
     z-index: 1;
-    top: 55px;
+    top: 50px;
     left: -0;
-    padding: 20px 0;
-    display: none;
     list-style: none;
     background-color: hsl(230, 5%, 29%);
     width: -webkit-fill-available;
-    height: 90vh;
+    height: 0;
     background-image: url(./images/bg-pattern-mobile-nav.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: bottom;
+}
+
+.nav-mobile ul.slide-down {
+    padding: 20px 0;
+    transition: all .2s ease-in;
+    height: 90vh;
+}
+
+.nav-mobile ul.slide-down li {
+    transition: all .4s ease-in;
+    display: block;
+}
+
+.nav-mobile ul.slide-up {
+    padding: 0;
+    transition: all .4s ease-out;
+    height: 0;
+}
+
+.nav-mobile ul.slide-up li {
+    display: none;
 }
 
 .nav-mobile ul li a {
@@ -93,6 +112,7 @@ body {
 }
 
 .nav-mobile ul li {
+    display: none;
     margin: 40px 0;
     width: 100%;
     text-align: center;
@@ -109,7 +129,10 @@ label {
     position: relative;
     width: 30px;
     height: 30px;
-    background-color: aqua;
+}
+
+input#checkbox {
+    display: none;
 }
 
 .buger-button {

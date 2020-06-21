@@ -147,10 +147,21 @@
         const toggleMenuButton = document.querySelector('input[type="checkbox"]');
         toggleMenuButton.addEventListener('change', function(e) {
             if (e.target.checked) {
-                document.querySelector('.nav-mobile ul').style.display = 'block';
+                document.querySelector('.nav-mobile ul').classList.toggle('slide-down');
+                document.querySelector('.nav-mobile ul').classList.remove('slide-up');
             } else {
-                document.querySelector('.nav-mobile ul').style.display = 'none';
+                document.querySelector('.nav-mobile ul').classList.remove('slide-down');
+                document.querySelector('.nav-mobile ul').classList.toggle('slide-up');
             }
+        });
+
+        const mobileNavLinks = document.querySelectorAll('.nav-mobile ul li');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-mobile ul').classList.remove('slide-down');
+                document.querySelector('.nav-mobile ul').classList.toggle('slide-up');
+                toggleMenuButton.checked = false;
+            });
         });
     </script>
 </body>
